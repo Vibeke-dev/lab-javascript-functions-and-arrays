@@ -117,14 +117,25 @@ function uniquifyArray(wordsUnique) {
   }
 }
 
-//let max = console.log(uniquifyArray(wordsUnique));
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  for (let i = 0; i<wordsFind.length; i++){
+    if (wordsFind.indexOf(word) !== -1){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
-
+  if (wordsFind.length===0){
+    return null;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -141,9 +152,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let wordsCounted = 0;
+  let index = 0;
+  
+  for (let i = 0; i<wordsCount.length; i++){
+    if (wordsCount.indexOf(word, index) >= 0){
+      wordsCounted++;
+      index = wordsCount.indexOf(word, index) + 1;
+    }
+  }
+  return wordsCounted;
+}
 
-
+let max = console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
 const matrix = [
